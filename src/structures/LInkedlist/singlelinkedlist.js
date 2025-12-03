@@ -41,8 +41,30 @@ export class singlyLinkedList{
          newNode.next=this.head;
          this.head=newNode;
          this.size++;
-         return this;
-        
+         return this;    
      }
+    insertAt(data, position){
+        if(position<1 || position>this.size+1){
+            console.log(`Invalid position value`);
+            return;
+        }
+        if(position===1){
+           return this.prepend(data);
+        }
+        else if(position===this.size+1){
+           return this.append(data);
+        }
+        else{
+            let temp=this.head;
+            for(let i=1;i<position-1;i++){
+                temp=temp.next;
+            }
+            const newNode=new Node(data);
+            newNode.next=temp.next;
+            temp.next=newNode;
+        }
+       this.size++;
+       return this;
+    }
 
 }
