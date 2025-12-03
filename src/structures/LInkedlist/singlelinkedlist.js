@@ -205,4 +205,23 @@ export class singlyLinkedList{
         }
         return null;
     }
+    traverse(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty`);
+            return;
+        }
+        let temp=this.head;
+        let valueStore=[];
+        while(temp){
+            valueStore.push(temp.data);
+            temp=temp.next;
+        }
+        let stringDisplay='';
+        valueStore.forEach(value=>{
+            stringDisplay+=`${value}-->`;
+        });
+        stringDisplay+=`NULL`;
+        console.log(stringDisplay);
+    }
 }
