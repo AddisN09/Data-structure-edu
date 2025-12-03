@@ -140,4 +140,14 @@ export class singlyLinkedList{
     size(){
         return this.size;
     }
+    linearSearchLinkedList(target){
+        let temp=this.head;
+        while(temp){
+            if(temp.data===target){
+                return temp;
+            }
+            temp=temp.next;
+        }
+        return null;
+    }
 }
