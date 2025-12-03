@@ -150,5 +150,29 @@ export class singlyLinkedList{
         }
         return null;
     }
+    insertNode(sortedList,current){
+        if(!sortedList || sortedList.data>current.data){
+            current.next=sortedList;
+            return current;
+        }
+        let temp=sortedList;
+        while(temp.next && temp.next.data<current.data){
+            temp=node.next;
+        }
+        current.next=temp.next;
+        temp.next=current;
+      return sortedList;
+    }
+    insertionSortLinkedList(){
+        let sorted=null;
+        let temp=this.head;
+        while(temp){
+            let nextNode=temp.next;
+            sorted=this.insertNode(sorted,temp);
+            temp=nextNode;
+        }
+        this.head=sorted;
+        return this;
+    }
    
 }
