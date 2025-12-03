@@ -66,5 +66,19 @@ export class singlyLinkedList{
        this.size++;
        return this;
     }
+    removeFirst(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty nothing to remove`);
+            return;
+        }
+        let temp=this.head;
+        this.head=this.head.next;
+        let removedValue=temp.data;
+        temp.next=null;
+        temp=null;
+        this.size--;
+        return removedValue;
+    }
 
 }
