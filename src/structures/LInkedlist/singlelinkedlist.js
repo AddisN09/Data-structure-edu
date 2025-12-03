@@ -137,4 +137,7 @@ export class singlyLinkedList{
         this.size=0;
         return this;
     }
+    size(){
+        return this.size;
+    }
 }
