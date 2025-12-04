@@ -157,7 +157,7 @@ export class singlyLinkedList{
         }
         let temp=sortedList;
         while(temp.next && temp.next.data<current.data){
-            temp=node.next;
+            temp=temp.next;
         }
         current.next=temp.next;
         temp.next=current;
@@ -248,4 +248,5 @@ export class singlyLinkedList{
         }while(swapped);
         return this;
     }
+    
 }
