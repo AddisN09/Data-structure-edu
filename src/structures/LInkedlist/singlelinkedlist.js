@@ -4,249 +4,273 @@ class Node {
         this.next = null;
     }
 }
-export class singlyLinkedList{
-    constructor(){
-        this.head=null;
-        this.size=0;
-    } 
+export class singlyLinkedList {
+    constructor() {
+        this.head = null;
+        this.size = 0;
+    }
 
-     isEmpty(){
-        if(!this.head){
+    isEmpty() {
+        if (!this.head) {
             return true;
         }
         return false;
-     }
-     append(data){
-        const newNode=new Node(data);
-        let empty=this.isEmpty();
-        if(empty){
-            this.head=newNode;
+    }
+    append(data) {
+        const newNode = new Node(data);
+        let empty = this.isEmpty();
+        if (empty) {
+            this.head = newNode;
         }
-        else{
-            let temp=this.head;
-            while(temp.next){
-                temp=temp.next;
+        else {
+            let temp = this.head;
+            while (temp.next) {
+                temp = temp.next;
             }
-            temp.next=newNode;
+            temp.next = newNode;
         }
         this.size++;
         return this;
-     }
-     prepend(data){
-        const newNode=new Node(data);
-        let empty=this.isEmpty();
-        if(empty){
-            this.head=newNode;
+    }
+    prepend(data) {
+        const newNode = new Node(data);
+        let empty = this.isEmpty();
+        if (empty) {
+            this.head = newNode;
         }
-         newNode.next=this.head;
-         this.head=newNode;
-         this.size++;
-         return this;    
-     }
-    insertAt(data, position){
-        if(position<1 || position>this.size+1){
+        newNode.next = this.head;
+        this.head = newNode;
+        this.size++;
+        return this;
+    }
+    insertAt(data, position) {
+        if (position < 1 || position > this.size + 1) {
             console.log(`Invalid position value`);
             return;
         }
-        if(position===1){
-           return this.prepend(data);
+        if (position === 1) {
+            return this.prepend(data);
         }
-        else if(position===this.size+1){
-           return this.append(data);
+        else if (position === this.size + 1) {
+            return this.append(data);
         }
-        else{
-            let temp=this.head;
-            for(let i=1;i<position-1;i++){
-                temp=temp.next;
+        else {
+            let temp = this.head;
+            for (let i = 1; i < position - 1; i++) {
+                temp = temp.next;
             }
-            const newNode=new Node(data);
-            newNode.next=temp.next;
-            temp.next=newNode;
+            const newNode = new Node(data);
+            newNode.next = temp.next;
+            temp.next = newNode;
         }
-       this.size++;
-       return this;
+        this.size++;
+        return this;
     }
-    removeFirst(){
-        let empty=this.isEmpty();
-        if(empty){
+    removeFirst() {
+        let empty = this.isEmpty();
+        if (empty) {
             console.log(`The list is empty nothing to remove`);
             return;
         }
-        let temp=this.head;
-        this.head=this.head.next;
-        let removedValue=temp.data;
-        temp.next=null;
-        temp=null;
+        let temp = this.head;
+        this.head = this.head.next;
+        let removedValue = temp.data;
+        temp.next = null;
+        temp = null;
         this.size--;
         return removedValue;
     }
-    removeLast(){
-        let empty=this.isEmpty();
-        if(empty){
+    removeLast() {
+        let empty = this.isEmpty();
+        if (empty) {
             console.log(`The list is empty nothing to remove`);
             return;
         }
-        let temp=this.head;
-        let slow=null;
-        while(temp.next){ 
-            slow=temp;
-            temp=temp.next;  
+        let temp = this.head;
+        let slow = null;
+        while (temp.next) {
+            slow = temp;
+            temp = temp.next;
         }
-        if(this.size===1){
-                return this.removeFirst();
-            }
-        let removedValue=temp.data;
-         slow.next=null;
-         temp=null;
-         this.size--;
+        if (this.size === 1) {
+            return this.removeFirst();
+        }
+        let removedValue = temp.data;
+        slow.next = null;
+        temp = null;
+        this.size--;
         return removedValue;
     }
-    removeAt(position){
-        let empty=this.isEmpty();
-        if(empty){
+    removeAt(position) {
+        let empty = this.isEmpty();
+        if (empty) {
             console.log(`The list is empty nothing to delete`);
             return;
         }
-        if(position<1 || position>this.size){
+        if (position < 1 || position > this.size) {
             console.log(`Invalid input for position`);
             return;
         }
-        let temp=this.head;
-        let slow=null;
-        for(let i=1;i<position;i++){
-            slow=temp;
-            temp=temp.next;
+        let temp = this.head;
+        let slow = null;
+        for (let i = 1; i < position; i++) {
+            slow = temp;
+            temp = temp.next;
         }
-        if(this.size===1 || position===1){
-                return this.removeFirst();
-            }
-        let removedValue=temp.data;
-        slow.next=temp.next;
-        temp.next=null;
-        temp=null;
+        if (this.size === 1 || position === 1) {
+            return this.removeFirst();
+        }
+        let removedValue = temp.data;
+        slow.next = temp.next;
+        temp.next = null;
+        temp = null;
         this.size--;
         return removedValue;
     }
-    clear(){
-        let empty=this.isEmpty();
-        if(empty){
+    clear() {
+        let empty = this.isEmpty();
+        if (empty) {
             console.log(`the list is empty`);
             return;
         }
-        this.head=null;
-        this.size=0;
+        this.head = null;
+        this.size = 0;
         return this;
     }
-    size(){
+    size() {
         return this.size;
     }
-    linearSearchLinkedList(target){
-        let temp=this.head;
-        while(temp){
-            if(temp.data===target){
+    linearSearchLinkedList(target) {
+        let temp = this.head;
+        while (temp) {
+            if (temp.data === target) {
                 return temp;
             }
-            temp=temp.next;
+            temp = temp.next;
         }
         return null;
     }
-    insertNode(sortedList,current){
-        if(!sortedList || sortedList.data>current.data){
-            current.next=sortedList;
+    insertNode(sortedList, current) {
+        if (!sortedList || sortedList.data > current.data) {
+            current.next = sortedList;
             return current;
         }
-        let temp=sortedList;
-        while(temp.next && temp.next.data<current.data){
-            temp=temp.next;
+        let temp = sortedList;
+        while (temp.next && temp.next.data < current.data) {
+            temp = temp.next;
         }
-        current.next=temp.next;
-        temp.next=current;
-      return sortedList;
+        current.next = temp.next;
+        temp.next = current;
+        return sortedList;
     }
-    insertionSortLinkedList(){
-        let sorted=null;
-        let temp=this.head;
-        while(temp){
-            let nextNode=temp.next;
-            sorted=this.insertNode(sorted,temp);
-            temp=nextNode;
+    insertionSortLinkedList() {
+        let sorted = null;
+        let temp = this.head;
+        while (temp) {
+            let nextNode = temp.next;
+            sorted = this.insertNode(sorted, temp);
+            temp = nextNode;
         }
-        this.head=sorted;
+        this.head = sorted;
         return this;
     }
-    getMiddle(left,right){
-        let empty=this.isEmpty();
-        if(empty){
+    getMiddle(left, right) {
+        let empty = this.isEmpty();
+        if (empty) {
             console.log(`The list is empty`);
             return;
         }
-        let fast=this.head;
-        let slow=this.head;
-        while(fast!==right && fast.next!==right){
-            slow=slow.next;
-            fast=fast.next.next;
+        let fast = this.head;
+        let slow = this.head;
+        while (fast !== right && fast.next !== right) {
+            slow = slow.next;
+            fast = fast.next.next;
         }
         return slow;
     }
-    binarySearchLinkedList(target){
-        let sorted=this.insertionSortLinkedList();
-        let start=this.head, end=null;
-        while(start!==end){
-            let mid=this.getMiddle(start,end);
-            if(mid.data===target){
+    binarySearchLinkedList(target) {
+        let sorted = this.insertionSortLinkedList();
+        let start = this.head, end = null;
+        while (start !== end) {
+            let mid = this.getMiddle(start, end);
+            if (mid.data === target) {
                 return mid;
             }
-            else if(mid.data>target){
-                end=mid;
+            else if (mid.data > target) {
+                end = mid;
             }
-            else{
-                start=mid.next;
+            else {
+                start = mid.next;
             }
         }
         return null;
     }
-    traverse(){
-        let empty=this.isEmpty();
-        if(empty){
+    traverse() {
+        let empty = this.isEmpty();
+        if (empty) {
             console.log(`The list is empty`);
             return;
         }
-        let temp=this.head;
-        let valueStore=[];
-        while(temp){
+        let temp = this.head;
+        let valueStore = [];
+        while (temp) {
             valueStore.push(temp.data);
-            temp=temp.next;
+            temp = temp.next;
         }
-        let stringDisplay='';
-        valueStore.forEach(value=>{
-            stringDisplay+=`${value}-->`;
+        let stringDisplay = '';
+        valueStore.forEach(value => {
+            stringDisplay += `${value}-->`;
         });
-        stringDisplay+=`NULL`;
+        stringDisplay += `NULL`;
         console.log(stringDisplay);
     }
-    bubbleSortLinkedList(){
-        let empty=this.isEmpty();
-        if(empty){
+    bubbleSortLinkedList() {
+        let empty = this.isEmpty();
+        if (empty) {
             console.log(`The list is empty`);
             return;
         }
         let swapped;
-        do{
-            swapped=false;
-           let fast=this.head.next;
-           let slow=this.head;
-           while(fast){
-            if(fast.data<slow.data){
-                 let temp=slow.data;
-                 slow.data=fast.data;
-                 fast.data=temp;
-                 swapped=true;
+        do {
+            swapped = false;
+            let fast = this.head.next;
+            let slow = this.head;
+            while (fast) {
+                if (fast.data < slow.data) {
+                    let temp = slow.data;
+                    slow.data = fast.data;
+                    fast.data = temp;
+                    swapped = true;
+                }
+                slow = slow.next;
+                fast = fast.next;
             }
-            slow=slow.next;
-            fast=fast.next;
-           }
-        }while(swapped);
+        } while (swapped);
         return this;
     }
-    
+    selectionSortLinkedList() {
+        let empty = this.isEmpty();
+        if (empty) {
+            console.log(`The list is empty`);
+            return;
+        }
+        let current = this.head;
+        while (current) {
+            let min = current;
+            let temp = current.next;
+            while (temp) {
+                 if(temp.data<min.data){
+                    min=temp;
+                 }
+                 temp=temp.next;
+            }
+            if(min!==current){
+                let temp=min.data;
+                min.data=current.data;
+                current.data=temp;
+            }
+            current=current.next;
+        }
+        return this;
+    }
 }
