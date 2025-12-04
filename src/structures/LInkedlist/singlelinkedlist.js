@@ -265,9 +265,30 @@ export class singlyLinkedList {
                  temp=temp.next;
             }
             if(min!==current){
-                let temp=min.data;
+                let value=min.data;
                 min.data=current.data;
-                current.data=temp;
+                current.data=value;
+            }
+            current=current.next;
+        }
+        return this;
+    }
+    simpleSortLinkedList(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty`);
+            return;
+        }
+        let current=this.head;
+        while(current){
+            let temp=current.next;
+            while(temp){
+                if(temp.data<current.data){
+                    let value=temp.data;
+                    temp.data=current.data;
+                    current.data=value;
+                }
+                temp=temp.next;
             }
             current=current.next;
         }
