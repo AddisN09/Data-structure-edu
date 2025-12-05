@@ -150,7 +150,7 @@ export class SinglyLinkedList {
         }
         return null;
     }
-    insertNode(sortedList, current) {
+    #insertNode(sortedList, current) {
         if (!sortedList || sortedList.data > current.data) {
             current.next = sortedList;
             return current;
@@ -168,13 +168,13 @@ export class SinglyLinkedList {
         let temp = this.head;
         while (temp) {
             let nextNode = temp.next;
-            sorted = this.insertNode(sorted, temp);
+            sorted = this.#insertNode(sorted, temp);
             temp = nextNode;
         }
         this.head = sorted;
         return this;
     }
-    getMiddle(left, right) {
+    #getMiddle(left, right) {
         let empty = this.isEmpty();
         if (empty) {
             console.log(`The list is empty`);
@@ -192,7 +192,7 @@ export class SinglyLinkedList {
         let sorted = this.insertionSortLinkedList();
         let start = this.head, end = null;
         while (start !== end) {
-            let mid = this.getMiddle(start, end);
+            let mid = this.#getMiddle(start, end);
             if (mid.data === target) {
                 return mid;
             }
