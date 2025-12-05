@@ -307,4 +307,21 @@ export class SinglyLinkedList {
         }
         return storeArray;
     }
+    reverse(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`the list is empty`);
+            return;
+        }
+        let current=this.head;
+        let previous=null;
+        while(current){
+            let nextNode=current.next;
+            current.next=previous;
+            previous=current;
+            current=nextNode;
+        }
+        this.head=previous;
+        return this;
+    }
 }
