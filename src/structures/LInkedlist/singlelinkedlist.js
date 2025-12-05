@@ -294,4 +294,17 @@ export class singlyLinkedList {
         }
         return this;
     }
+    toArray(){
+        let empty=this.isEmpty();
+        if(empty){
+            return [];
+        }
+        let storeArray=[];
+        let temp=this.head;
+        while(temp){
+            storeArray.push(temp.data);
+            temp=temp.next;
+        }
+        return storeArray;
+    }
 }
