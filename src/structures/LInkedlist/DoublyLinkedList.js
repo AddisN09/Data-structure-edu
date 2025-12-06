@@ -164,4 +164,40 @@ export class DoublyLinkedList {
         this.size--;
         return value;
     }
+    removeAt(position){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty nothing to delete`);
+            return;
+        }
+        if(position<0 || position>this.size-1){
+            console.log(`Invalid input for position`);
+            return;
+        }
+        if(position===0){
+            return this.removeFirst();
+        }
+        else if(position===this.size-1){
+            return this.removeLast();
+        }
+        else{
+        let temp=this.head;
+        let follower=null;
+        for(let i=0; i<position; i++){
+              follower=temp;
+              temp=temp.next;
+        }
+        follower.next=temp.next;
+        if(temp.next){
+            let nextNode=temp.next;
+            nextNode.previous=follower;
+        }
+        temp.next=null;
+        temp.previous=null;
+        let value=temp.data;
+        temp=null;
+        this.size--;
+        return value;
+    }
+    }
 }
