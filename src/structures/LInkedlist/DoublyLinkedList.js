@@ -200,4 +200,7 @@ export class DoublyLinkedList {
         return value;
     }
     }
+    size(){
+        return this.size;
+    }
 }
