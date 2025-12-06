@@ -47,4 +47,31 @@ export class DoublyLinkedList{
         this.size++;
         return this;
     }
+    insertAt(data,position){
+      if(position<0 || position>this.size){
+        console.log(`Invalid input for position`);
+        return;
+      }
+      if(position===0){
+        return this.prepend(data);
+      }
+      if(position===this.size){
+        return this.append(data);
+      }
+      else{
+        const newNode=new Node(data);
+        let temp=this.head; 
+        let follower=null;
+        for(let i=0;i<position;i++){
+            follower=temp;
+            temp=temp.next;
+        }
+         newNode.next=follower.next;
+         newNode.previous=temp.previous;
+         follower.next=newNode;
+         temp.previous=newNode;
+      }
+      this.size++;
+      return this;
+    }
 }
