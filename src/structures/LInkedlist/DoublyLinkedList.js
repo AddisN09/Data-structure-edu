@@ -123,4 +123,21 @@ export class DoublyLinkedList{
             console.log(display);
         }
     }
+    removeFirst(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty nothing to delete`);
+            return;
+        }
+        let temp=this.head;
+        this.head=temp.next;
+        if(this.size!==1){
+            this.head.previous=null;
+        }
+        temp.next=null;
+        let value=temp.data;
+        temp=null;
+        this.size--;
+        return value;
+    }
 }
