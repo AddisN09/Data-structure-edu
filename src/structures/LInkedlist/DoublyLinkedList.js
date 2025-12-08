@@ -203,4 +203,19 @@ export class DoublyLinkedList {
     size(){
         return this.size;
     }
+    linearSearch(target){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log('The list is empty');
+            return;
+        }
+        let temp=this.head;
+        while(temp){
+            if(temp.data===target){
+                return temp;
+            }
+            temp=temp.next;
+        }
+        return null;
+    }
 }
