@@ -4,3 +4,9 @@ class Node{
         this.next=null;
     }
 }
+export class LinkedListStack{
+       constructor(){
+        this.head=null;
+        this.size=0;
+       }
+}
