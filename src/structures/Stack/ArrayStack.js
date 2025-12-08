@@ -9,4 +9,8 @@ export class ArrayStack{
         }
         return false;
     }
+    push(data){
+      this.stack.push(data);
+      return this.stack.length;
+    }
 }
