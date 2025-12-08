@@ -356,4 +356,7 @@ export class DoublyLinkedList {
         }
         return this;
     }
+    clear(){
+        return this.head=null;
+    }
 }
