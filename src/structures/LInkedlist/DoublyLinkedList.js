@@ -285,4 +285,28 @@ export class DoublyLinkedList {
         }
         return null;
      }
+     bubbleSort(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty`);
+            return;
+        }
+        let swapped;
+        do{
+            swapped=false;
+            let slow=this.head;
+            let fast=this.head.next;
+            while(fast){
+                if(fast.data<slow.data){
+                    let temp=fast.data;
+                    fast.data=slow.data;
+                    slow.data=temp;
+                    swapped=true;
+                }
+                slow=slow.next;
+                fast=fast.next;
+            }
+        }while(swapped);
+        return this;
+    }
 }
