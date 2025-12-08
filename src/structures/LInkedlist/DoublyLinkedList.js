@@ -334,4 +334,25 @@ export class DoublyLinkedList {
         }
         return this;
     }
+    simpleSort(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty`);
+            return;
+        }
+        let current=this.head;
+        while(current){
+            let temp=current.next;
+            while(temp){
+                if(temp.data<current.data){
+                    let temporary=temp.data;
+                    temp.data=current.data;
+                    current.data=temporary;
+                }
+                temp=temp.next;
+            }
+            current=current.next;
+        }
+        return this;
+    }
 }
