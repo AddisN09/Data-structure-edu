@@ -33,4 +33,13 @@ export class ArrayStack{
     clear(){
         return this.stack.length=0;
     }
+    print(){
+        if(this.isEmpty()){
+            console.log(`The stack is empty`);
+            return;
+        }
+        for(let i=this.stack.length-1;i>=0;i--){
+            console.log(this.stack[i]);
+        }
+    }
 }
