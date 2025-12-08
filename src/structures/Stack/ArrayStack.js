@@ -13,4 +13,11 @@ export class ArrayStack{
       this.stack.push(data);
       return this.stack.length;
     }
+    pop(){
+        if(this.isEmpty()){
+            console.log(`The stack is empty`);
+            return;
+        }
+        return this.stack.pop();
+    }
 }
