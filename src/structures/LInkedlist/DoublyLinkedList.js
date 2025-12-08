@@ -218,4 +218,44 @@ export class DoublyLinkedList {
         }
         return null;
     }
+    insertionSort(){
+        let empty=this.isEmpty();
+        if(empty){
+            console.log(`The list is empty`);
+        }
+        if(!this.head.next){
+            return this;
+        }
+        let current=this.head.next;
+        while(current){
+            let key=current;
+            let nextNode=current.next;
+            let back=current.previous;
+            while(back && back.data>key.data){
+                back=back.previous;
+            }
+            if(back !== current){
+                if(current.next){
+                    current.next.previous=current.previous;
+                }
+                if(current.previous){
+                    current.previous.next=current.next;
+                }
+                if(!back){
+                    current.next=this.head;
+                    this.head.previous=current;
+                    current.previous=null;
+                    this.head=current;
+                }
+                else{
+                    current.next=back.next;
+                    current.previous=back;
+                    back.next.previous=current;
+                    back.next=current;
+                }
+            }
+            current=nextNode;
+        }
+        return this;
+    }
 }
