@@ -15,4 +15,10 @@ export class LinkedListStack{
         }
         return false;
        }
+       push(data){
+        const newNode=new Node(data);
+        newNode.next=this.head;
+        this.head=newNode;
+        return this.size++;
+       }
 }
