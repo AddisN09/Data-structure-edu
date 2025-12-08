@@ -20,4 +20,11 @@ export class ArrayStack{
         }
         return this.stack.pop();
     }
+    peek(){
+         if(this.isEmpty()){
+            console.log(`The stack is empty`);
+            return;
+        }
+        return this.stack[this.stack.length-1];
+    }
 }
