@@ -31,7 +31,7 @@ export class ArrayStack{
         return this.stack.length;
     }
     clear(){
-        return this.stack.length=0;
+         this.stack.length=0;
     }
     print(){
         if(this.isEmpty()){
