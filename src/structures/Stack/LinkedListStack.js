@@ -21,4 +21,17 @@ export class LinkedListStack{
         this.head=newNode;
         return this.size++;
        }
+       pop(){
+        if(this.isEmpty()){
+            console.log(`The stack is empty`);
+            return;
+        }
+        let temp=this.head;
+        this.head=this.head.next;
+        temp.next=null;
+        let value=temp.data;
+        temp=null;
+        this.size--;
+        return value;
+       }
 }
