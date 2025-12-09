@@ -19,7 +19,8 @@ export class LinkedListStack{
         const newNode=new Node(data);
         newNode.next=this.head;
         this.head=newNode;
-        return this._size++;
+        this._size++;
+        return this._size;
        }
        pop(){
         if(this.isEmpty()){
@@ -48,7 +49,6 @@ export class LinkedListStack{
        clear(){
         this.head=null;
         this._size=0;
-        return this;
        }
        print(){
         if(this.isEmpty()){
