@@ -47,6 +47,7 @@ export class LinkedListStack{
        }
        clear(){
         this.head=null;
+        this._size=0;
         return this;
        }
        print(){
