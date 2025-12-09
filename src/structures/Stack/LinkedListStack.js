@@ -60,4 +60,16 @@ export class LinkedListStack{
             temp=temp.next;
         }
        }
+       toArray(){
+        if(this.isEmpty()){
+            return [];
+        }
+        let store=[];
+        let temp=this.head;
+        while(temp){
+            store.push(temp.data);
+            temp=temp.next;
+        }
+        return store;
+       }
 }
