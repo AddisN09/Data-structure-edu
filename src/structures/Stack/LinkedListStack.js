@@ -49,4 +49,15 @@ export class LinkedListStack{
         this.head=null;
         return this;
        }
+       print(){
+        if(this.isEmpty()){
+            console.log(`The llist is empty`);
+            return;
+        }
+        let temp=this.head;
+        while(temp){
+            console.log(temp.data);
+            temp=temp.next;
+        }
+       }
 }
