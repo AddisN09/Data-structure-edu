@@ -45,4 +45,8 @@ export class LinkedListStack{
        size(){
         return this._size;
        }
+       clear(){
+        this.head=null;
+        return this;
+       }
 }
