@@ -42,4 +42,7 @@ export class LinkedListStack{
         let value=this.head.data;
         return value;
        }
+       size(){
+        return this._size;
+       }
 }
