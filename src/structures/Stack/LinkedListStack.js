@@ -34,4 +34,12 @@ export class LinkedListStack{
         this.size--;
         return value;
        }
+       peek(){
+        if(this.isEmpty()){
+            console.log(`The stack is  empty`);
+            return;
+        }
+        let value=this.head.data;
+        return value;
+       }
 }
