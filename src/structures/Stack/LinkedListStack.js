@@ -7,7 +7,7 @@ class Node{
 export class LinkedListStack{
        constructor(){
         this.head=null;
-        this.size=0;
+        this._size=0;
        }
        isEmpty(){
         if(!this.head){
@@ -19,7 +19,7 @@ export class LinkedListStack{
         const newNode=new Node(data);
         newNode.next=this.head;
         this.head=newNode;
-        return this.size++;
+        return this._size++;
        }
        pop(){
         if(this.isEmpty()){
@@ -31,7 +31,7 @@ export class LinkedListStack{
         temp.next=null;
         let value=temp.data;
         temp=null;
-        this.size--;
+        this._size--;
         return value;
        }
        peek(){
